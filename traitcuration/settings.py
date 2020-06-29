@@ -127,11 +127,7 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/3.0/howto/static-files/
 COMPRESS_ENABLED = True
 
-
-STATICFILES_DIRS = [
-    os.path.join(BASE_DIR, "/traitcuration/static"),
-    '/var/www/traitcuration/static',
-]
+STATICFILES_DIRS = []
 
 STATIC_URL = os.path.join(BASE_DIR, 'traitcuration/static/')
 STATIC_ROOT = os.path.join(BASE_DIR, 'traitcuration/static')
@@ -149,5 +145,5 @@ COMPRESS_PRECOMPILERS = (
 )
 
 # Activate Django-Heroku, only on Heroku environments.
-# if '/app' in os.environ['HOME']:
-django_heroku.settings(locals())
+if '/app' in os.environ['HOME']:
+    django_heroku.settings(locals())
